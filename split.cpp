@@ -65,11 +65,9 @@ void split(Node*& in, Node*& odds, Node*& evens)
   
   //calls split function again
   split(in, odds, evens);
-  /* Add code here */
-// WRITE YOUR CODE HERE
 }
 
-
+/* If you needed a helper function, write it here */
 //recursive function to find tail of a linked list
 void parse_linked_list(Node*& tail) {
   if (tail -> next == NULL ) {
@@ -81,4 +79,3 @@ void parse_linked_list(Node*& tail) {
   }
 }
 
-/* If you needed a helper function, write it here */
