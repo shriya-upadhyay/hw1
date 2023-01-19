@@ -19,16 +19,21 @@ using namespace std;
 
 void split(Node*& in, Node*& odds, Node*& evens)
 {
+  //checks if the input node is null before trying to dereference it
   if (in == NULL) {
     return;
   }
+  //creates a temp pointer for the next item after in
   Node* temp = in -> next;
 
+  //checks if input value is even
   if ((in -> value ) %2 == 0) {
+    //checks if evens list is null already and sets it equal to in, if so, sets the next pointer to NULL since it is the only item in the evens list
     if (evens == NULL) {
       evens = in;
       evens -> next = NULL;
     }
+    //checks if evens list has numbers in it already, if so, uses the recursive function to find the tail and then adds the number to the end of the list
     else {
       Node* evens_tail = evens;
       parse_linked_list(evens_tail);
@@ -37,29 +42,35 @@ void split(Node*& in, Node*& odds, Node*& evens)
     }
   }
   
-
+  //checks if input value is odd
   else if (in -> value %2 != 0) {
+    //checks if odds list is null already and sets it equal to in, if so, sets the next pointer to NULL since it is the only item in the odds list 
     if (odds == NULL) {
       odds = in;
       odds -> next = NULL;
     }
 
-    else {
-      Node* odds_tail = odds;
-      parse_linked_list(odds_tail);
-      odds_tail -> next = in;
-      odds_tail -> next -> next = NULL;
+  //checks if odds list has numbers in it already, if so, uses the recursive function to find the tail and then adds the number to the end of the list
+  else {
+    Node* odds_tail = odds;
+    parse_linked_list(odds_tail);
+    odds_tail -> next = in;
+    odds_tail -> next -> next = NULL;
     }
 
   }
 
+  //sets input pointer to next number in input list
   in = temp;
   
+  //calls split function again
   split(in, odds, evens);
   /* Add code here */
 // WRITE YOUR CODE HERE
 }
 
+
+//recursive function to find tail of a linked list
 void parse_linked_list(Node*& tail) {
   if (tail -> next == NULL ) {
     return;
