@@ -37,4 +37,6 @@ dat.pop_back();
 dat.push_back("d");
 //tries printing first element of array
 cout << dat.front() << endl;
-}
+
+} 
+

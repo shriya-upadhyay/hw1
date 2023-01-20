@@ -24,6 +24,7 @@ bool ULListStr::empty() const
 size_t ULListStr::size() const
 {
   return size_;
+
 }
 
 // WRITE YOUR CODE HERE
@@ -108,16 +109,21 @@ void ULListStr::pop_back() {
   //changes size as necessary
   tail_ -> val[ tail_ -> last -1] = "";
   (tail_ -> last)--;
-  (size_)--; 
+  (size_)--;
+
   //deallocates item if the none of the item's array elements are used
   if ((tail_ -> last) - (tail_ -> first) == 0) {
     Item* temp = tail_;
-    if (tail_ -> prev != NULL) {
-      tail_ -> prev -> next = NULL;
-      tail_ = tail_ -> prev;
-      delete temp;
+    if(tail_ -> prev != NULL) {
+    tail_ -> prev -> next = NULL;
+    tail_ = tail_ -> prev;
     }
+  //if last (singular) item in array, sets head to NULL
+  else {
+    head_ = NULL; 
   }
+  delete temp;
+}
 }
 
 void ULListStr::pop_front() {
@@ -130,16 +136,20 @@ void ULListStr::pop_front() {
   //changes size as necessary
   head_ -> val[head_ -> first] = "";
   head_ -> first++;
-  (size_)--;
+  (size_)--; 
   //deallocates item if the none of the item's array elements are used
   if ((head_ -> last) - (head_ -> first) == 0) {
     Item* temp = head_;
     if (head_ -> next != NULL) {
       head_ -> next -> prev = NULL;
       head_ = head_ -> next;
-      delete temp;
     }
+  //if last singular item in array, sets head to NULL
+  else {
+    head_ = NULL;
   }
+  delete temp;
+  }   
 }
 
 //return last element of tail's array
