@@ -16,8 +16,7 @@ using namespace std;
 
 int main(int argc, char* argv[])
 {
-
-  //creates new linked list for evens, odds, and sample input
+//creates new linked list for evens, odds, and sample input
   Node* evens = NULL;
   Node* odds = NULL;
   Node* in = new Node(0, new Node(6, new Node(8, new Node(10, new Node (3, new Node (11, NULL))))));
@@ -56,5 +55,6 @@ int main(int argc, char* argv[])
     delete evens;
     evens = temp;
   } 
+
 
 }

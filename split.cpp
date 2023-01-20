@@ -4,7 +4,7 @@ CSCI 104: Homework 1 Problem 1
 Write a recursive function to split a sorted singly-linked
 list into two sorted linked lists, where one has the even 
 numbers and the other contains the odd numbers. Students 
-will receive no credit for non-recursive solutions. 
+will receive no credit non-recursive solutions. 
 To test your program write a separate .cpp file and #include
 split.h.  **Do NOT add main() to this file**.  When you submit
 the function below should be the only one in this file.
@@ -12,18 +12,18 @@ the function below should be the only one in this file.
 
 #include "split.h"
 #include <cstddef>
-#include <iostream>
-using namespace std;
 
-/* Add a prototype for a helper function here if you need */
+/* Add a prototype a helper function here if you need */
+void parse_linked_list(Node*& tail);
+
 
 void split(Node*& in, Node*& odds, Node*& evens)
 {
-  //checks if the input node is null before trying to dereference it
+  //checks if the input node is null trying to dereference it
   if (in == NULL) {
     return;
   }
-  //creates a temp pointer for the next item after in
+  //creates a temp pointer to point to the next item after in
   Node* temp = in -> next;
 
   //checks if input value is even

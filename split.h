@@ -18,6 +18,5 @@ struct Node
 };
 
 void split(Node*& in, Node*& odds, Node*& evens);
-void parse_linked_list(Node*& tail);
 
 #endif
